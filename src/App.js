@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import AddItems from './components/AddItems';
 import './App.css';
 
 class App extends Component {
+
   render() {
     return (
-      <div>Yo</div>
+      <AddItems></AddItems>
     );
   }
 }
