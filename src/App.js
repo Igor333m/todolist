@@ -4,9 +4,19 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    itemList: [
+      
+    ]
+  }
+
   render() {
     return (
-      <AddItems></AddItems>
+      <div className='App'>
+        <AddItems
+          itemList={this.state.itemList}
+        ></AddItems>
+      </div>
     );
   }
 }
