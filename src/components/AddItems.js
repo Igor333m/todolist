@@ -15,6 +15,14 @@ class AddItems extends Component {
     this.setState({value: event.target.value});
   }
 
+  addItem = event => {
+    event.preventDefault();
+    this.setState(oldState => ({
+      items: [...oldState.items, this.state.value],
+      value: ''
+    }));
+  }
+
   
   render() {
     console.log("this.props", this.props);
@@ -31,7 +39,7 @@ class AddItems extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           ></input>
-          <button>Add Item</button>
+          <button onClick={this.addItem}>Add Item</button>
         </form>
       </div>
     );
