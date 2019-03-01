@@ -23,6 +23,22 @@ class AddItems extends Component {
     }));
   }
 
+  inputIsEmpty = () => {
+    return this.state.value === '' ? true : false
+  }
+
+  lastItemIsEmpty = () => {
+    return this.state.items.length === 0 ? true : false
+  }
+
+  deleteLastItem = event => {
+    event.preventDefault();
+    this.state.items.pop();
+    this.setState(oldState => ({
+      items: oldState.items
+    }));
+  }
+
   
   render() {
     console.log("this.props", this.props);
@@ -39,8 +55,15 @@ class AddItems extends Component {
             value={this.state.value}
             onChange={this.handleChange}
           ></input>
-          <button onClick={this.addItem}>Add Item</button>
+          <button
+            onClick={this.addItem}
+            disabled={this.inputIsEmpty()}
+          >Add Item</button>
         </form>
+        <button
+          onClick={this.deleteLastItem}
+          disabled={this.lastItemIsEmpty()}
+        >Delete Last Item</button>
       </div>
     );
   }
