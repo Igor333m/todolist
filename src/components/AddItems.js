@@ -41,8 +41,6 @@ class AddItems extends Component {
 
   
   render() {
-    console.log("this.props", this.props);
-    console.log("this.state", this.state);
     const { itemList} = this.props
 
     return(

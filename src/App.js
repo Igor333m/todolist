@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddItems from './components/AddItems';
+import ListItems from './components/ListItems';
 import './App.css';
 
 class App extends Component {
@@ -16,6 +17,9 @@ class App extends Component {
         <AddItems
           itemList={this.state.itemList}
         ></AddItems>
+        <ListItems>
+
+        </ListItems>
       </div>
     );
   }
