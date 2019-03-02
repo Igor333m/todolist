@@ -32,9 +32,9 @@ class App extends Component {
           onAddItem={this.addItem}
           onRemoveItem={this.removeLastItem}
         ></AddItems>
-        <ListItems>
-
-        </ListItems>
+        <ListItems
+          itemList={this.state.itemList}
+        ></ListItems>
       </div>
     );
   }
