@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 class AddItems extends Component {
   static propTypes = {
-    itemList: PropTypes.array.isRequired
+    itemList: PropTypes.array.isRequired,
+    onAddItem: PropTypes.func.isRequired,
+    onRemoveItem: PropTypes.func.isRequired
   }
 
   state = {
-    value: '',
-    items: []
+    value: ''
   }
 
   handleChange = (event) => {
@@ -17,32 +18,25 @@ class AddItems extends Component {
 
   addItem = event => {
     event.preventDefault();
-    this.setState(oldState => ({
-      items: [...oldState.items, this.state.value],
-      value: ''
-    }));
+    this.props.onAddItem(this.state.value);
+    this.setState( {value: ''} );
   }
-
+  
   inputIsEmpty = () => {
     return this.state.value === '' ? true : false
   }
-
+  
   lastItemIsEmpty = () => {
-    return this.state.items.length === 0 ? true : false
+    return this.props.itemList.length === 0 ? true : false
   }
-
+  
   deleteLastItem = event => {
     event.preventDefault();
-    this.state.items.pop();
-    this.setState(oldState => ({
-      items: oldState.items
-    }));
+    this.props.onRemoveItem()
   }
-
+  
   
   render() {
-    const { itemList} = this.props
-
     return(
       <div className=''>
         <h1>Shopping List</h1>

@@ -11,11 +11,26 @@ class App extends Component {
     ]
   }
 
+  addItem = item => {
+    this.setState(oldState => ({
+      itemList: [...oldState.itemList, item]
+    }));
+  }
+
+  removeLastItem = () => {
+    this.setState( () => ({
+      itemList: this.state.itemList.slice(0, -1)
+    }));
+  }
+
+
   render() {
     return (
       <div className='App'>
         <AddItems
           itemList={this.state.itemList}
+          onAddItem={this.addItem}
+          onRemoveItem={this.removeLastItem}
         ></AddItems>
         <ListItems>
 
