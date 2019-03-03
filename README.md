@@ -7,6 +7,6 @@
 * start the development server with `npm start`
 
 ## Project Preview
-![Todo List preview](Screenshot_from_ 2019-03-02_20-12-48.png)
+![Todo List preview](/Screenshot_from_ 2019-03-02_20-12-48.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
